@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Master Reference</title>
+  <style>
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-heading">Welcome to DOM Learning</h1>
+  <p class="desc">This paragraph is styled and selected using DOM methods.</p>
+  <div class="container">
+    <ul>
+      <li class="item">Item 1</li>
+      <li class="item">Item 2</li>
+      <li class="item">Item 3</li>
+    </ul>
+  </div>
+
+  <script>
+    /*
+     DOM Selection
+    */
+    const heading = document.getElementById("main-heading");
+    const desc = document.querySelector(".desc");
+    const items = document.querySelectorAll(".item");
+
+    console.log(document.title);         // Logs page title
+    console.log(document.URL);           // Logs current URL
+    console.log(document.body);          // Logs body element
+
+    /*
+     DOM Tree Navigation
+    */
+    const container = document.querySelector(".container");
+    console.log(container.childNodes);   // Includes text nodes
+    console.log(container.children);     // Only element nodes
+    console.log(container.firstElementChild); // First child element
+    console.log(container.lastElementChild);  // Last child element
+
+    /*
+     Creating and Inserting Elements
+    */
+    const newDiv = document.createElement("div");
+    newDiv.innerText = "This is a new div";
+    newDiv.setAttribute("class", "highlight");
+    document.body.appendChild(newDiv);
+
+    /*
+     Styling Elements
+    */
+    heading.style.color = "blue";
+    heading.style.backgroundColor = "lightgray";
+    desc.classList.add("highlight");
+
+    /*
+     Removing Elements
+    */
+    // newDiv.remove(); // Uncomment to remove the new div
+
+    /*
+     Text Content Variants
+    */
+    console.log(heading.innerText);     // Visible text only
+    console.log(heading.textContent);   // All text including hidden
+    console.log(container.innerHTML);   // Includes HTML tags
+
+    /*
+    Node vs Element
+    */
+    console.log(heading.nodeName);      // H1
+    console.log(heading.nodeType);      // 1 (Element)
+    console.log(container.hasChildNodes()); // true
+
+    /*
+     Useful DOM APIs
+    */
+    const clonedHeading = heading.cloneNode(true);
+    document.body.appendChild(clonedHeading);
+  </script>
+
+</body>
+</html>
